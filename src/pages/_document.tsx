@@ -1,6 +1,10 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript,DocumentContext } from 'next/document'
 
-export default function Document() {
+export default class CustomDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext){
+    return Document.getInitialProps(ctx);
+  }
+  render(){
   return (
     <Html lang="en">
       <Head />
@@ -10,4 +14,4 @@ export default function Document() {
       </body>
     </Html>
   )
-}
+}}
